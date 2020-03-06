@@ -8,7 +8,7 @@ const FirebaseContext = React.createContext(null);
 const useFirebase = () => useContext(FirebaseContext);
 
 const FirebaseProvider = ({children}) => {
-    const [app] = useState(firebase.initializeApp(firebaseConfig));
+    const [app] = useState(!firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app());
 
     return (
         <FirebaseContext.Provider value={{app}}>

@@ -1,5 +1,5 @@
-import React, { useContext, useState } from 'react';
-import { BookmarkContext, ProxyContext } from '../services';
+import React, { useContext, useState, useEffect } from 'react';
+import { BookmarkContext, ProxyContext, useFirestore } from '../services';
 
 import SEOSearchResult from './SEOSearchResult';
 
@@ -8,6 +8,15 @@ import './SEOSearch.css';
 const SEOSearch = ({}) => {
     const [ url, setUrl ] = useState('');
     const [ searchResult, setSearchResult ] = useState('');
+    const { getBookmarks } = useFirestore();
+
+    useEffect(() => {        
+        async function fetchBookmarks (){
+            const bm = await getBookmarks();
+            console.log(bm);
+        }
+        fetchBookmarks();
+    }, []);
 
     const { getSEO } = useContext(ProxyContext);
     const { bookmarks, addBookmark, removeBookmark } = useContext(BookmarkContext);

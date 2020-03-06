@@ -9,10 +9,18 @@ const useFirestore = () => useContext(FirestoreContext);
 const FirestoreProvider = ({children}) => {
     const { app } = useFirebase();
     const db = app.firestore();
-    console.log(db);
+
+    const getBookmarks = async () => {
+        const query = db.collection('bookmarks');
+        const snapshot = await query.get();
+        const bookmarks = snapshot.docs.map((doc) => {
+            return { uid: doc.id, ...doc.data()};
+        });
+        return bookmarks;
+    };
 
     return (
-        <FirestoreContext.Provider value={{}}>
+        <FirestoreContext.Provider value={{getBookmarks}}>
             {children}
         </FirestoreContext.Provider>
     )
