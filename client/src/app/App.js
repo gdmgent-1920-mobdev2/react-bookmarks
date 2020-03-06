@@ -1,9 +1,10 @@
 import React from 'react';
 
-import { BookmarkProvider, FirebaseProvider, ProxyProvider, FirestoreProvider } from './services';
+import { FirebaseProvider, ProxyProvider, FirestoreProvider } from './services';
+import { BookmarkList, SEOSearch } from './components';
 
 import './App.css';
-import { SEOSearch } from './components';
+
 
 function App() {
   return (
@@ -11,9 +12,8 @@ function App() {
       <FirebaseProvider>
         <FirestoreProvider>
           <ProxyProvider>
-            <BookmarkProvider>
-              <SEOSearch></SEOSearch>
-            </BookmarkProvider>  
+            <BookmarkList />
+            <SEOSearch></SEOSearch>
           </ProxyProvider>
         </FirestoreProvider>
       </FirebaseProvider>

@@ -1,0 +1,37 @@
+.bookmark-list {
+}
+
+.bookmark-list > ul {
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.bookmark-list__item {
+    border-radius: 3px;
+    box-shadow: var(--newtab-card-shadow);
+
+    width: 33%;
+}
+
+.bookmark-list__item > .title {
+    font-size: 1.4rem;
+}
+
+.bookmark-list__item > .picture {
+    background-color:#d7d7db;
+    border-radius: 3px 3px 0 0;
+    height: 122px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.bookmark-list__item > picture > img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
