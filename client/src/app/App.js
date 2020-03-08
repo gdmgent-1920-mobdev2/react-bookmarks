@@ -1,21 +1,31 @@
 import React from 'react';
+import { BrowserRouter as Router, Redirect, Switch } from 'react-router-dom';
 
-import { FirebaseProvider, ProxyProvider, FirestoreProvider } from './services';
-import { BookmarkList, SEOSearch } from './components';
+import { AuthProvider, FirebaseProvider, FirestoreProvider } from './services';
+import { AuthRouteWithLayout, RouteWithLayout } from './utilities';
+import * as Routes from './routes';
+
+import { BaseLayout, FrontofficeLayout } from './layouts';
+import { AppPage, HomePage, SignInPage} from './pages';
 
 import './App.css';
-
 
 function App() {
   return (
     <div className="app">
       <FirebaseProvider>
-        <FirestoreProvider>
-          <ProxyProvider>
-            <BookmarkList />
-            <SEOSearch></SEOSearch>
-          </ProxyProvider>
-        </FirestoreProvider>
+        <AuthProvider>
+          <FirestoreProvider>
+            <Router basename={'/react-bookmarks'}>
+              <Switch>
+                <RouteWithLayout exact path={Routes.LANDING} layout={ BaseLayout } component={ HomePage }/>
+                <Redirect from={Routes.HOME} to={Routes.LANDING}/>
+                <RouteWithLayout exact path={Routes.AUTH_SIGN_IN} layout={ BaseLayout } component={ SignInPage }/>
+                <AuthRouteWithLayout path={Routes.FRONTOFFICE} layout={ FrontofficeLayout } component={ AppPage }/>
+              </Switch>
+            </Router>
+          </FirestoreProvider>
+        </AuthProvider>
       </FirebaseProvider>
     </div>
   );
