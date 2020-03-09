@@ -24,8 +24,8 @@ const BookmarkTree = ({children}) => {
             ? <ul className="list-group">
               { bookmarks.map((reference) => {
                 return (
-                <li className="list-group-item" key={reference.uid}>
-                  <Link className="" to={`/app/bookmarks/${reference.uid}`}>
+                <li className="list-group-item bookmark-tree__folder-item" key={reference.uid}>
+                  <Link className="d-flex flex-row" to={`/app/bookmarks/${reference.uid}`}>
                     {reference.image ? <picture className="pull-left picture"><img src={reference.image} /></picture> : <picture className="pull-left picture picture--no-img"></picture>}
                     {reference.title}
                   </Link>

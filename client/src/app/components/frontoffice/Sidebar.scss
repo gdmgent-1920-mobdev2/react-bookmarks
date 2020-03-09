@@ -11,9 +11,16 @@
     &__primary {
         background: rgba(0, 123, 255, 1);
         color: rgba(255, 255, 255, 1);
-        width: 72px;
+        width: 90px;
         height: 100vh;
         max-height: 100vh;
+
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+
+        padding: 15px 0;
     }
 
     &__secondary {
@@ -25,5 +32,21 @@
         max-height: 100vh;
         overflow-x: hidden;
         overflow-y: scroll;
+    }
+}
+
+.layout__frontoffice .logo {
+    margin: 0;
+    padding: 0;
+
+    &__link {
+        display: block;
+        width: 60px;
+        height: 49.2px;
+    
+        background: url('../../assets/images/logo_white.png');
+        background-size: contain;
+    
+        text-indent: -999em;
     }
 }

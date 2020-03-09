@@ -17,3 +17,23 @@
         object-fit: cover;
     }
 }
+
+.bookmark-tree {
+    &__folder-item {
+        & .picture {
+            display: block;
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            max-width: 48px;
+            margin-right: 15px;
+
+            & > img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                
+            }
+        }
+    }
+}

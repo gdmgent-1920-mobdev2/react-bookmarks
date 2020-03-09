@@ -5,6 +5,7 @@ import * as Routes from '../routes';
 import { ProxyProvider } from '../services';
 
 import { BookmarkList } from '../components/frontoffice';
+import BookmarkAddPage from './BookmarkAddPage';
 import BookmarkDetailPage from './BookmarkDetailPage';
 import DashboardPage from './DashboardPage';
 
@@ -13,6 +14,7 @@ const AppPage = ({children}) => {
     <ProxyProvider>
       <Redirect from={Routes.FRONTOFFICE} to={Routes.FRONTOFFICE_DASHBOARD}/>
       <Route path="/app/dashboard" component={ DashboardPage }/>
+      <Route path="/app/bookmarks-add" component={ BookmarkAddPage }/>
       <Route path="/app/bookmarks/:id" component={ BookmarkDetailPage }/>
     </ProxyProvider>
   );
