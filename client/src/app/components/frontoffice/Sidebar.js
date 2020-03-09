@@ -30,10 +30,12 @@ const Sidebar = ({children}) => {
         </ul>
         <ul className="navbar-nav">
           <li className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a className="nav-link dropdown-toggle user-navigation" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <img className="profile-image" src={currentUser.photoURL} />
             </a>
             <div className="dropdown-menu dropdown-menu-top" aria-labelledby="navbarDropdown">
+            <Link className="dropdown-item" to={Routes.HOME}>Go to Homepage</Link>
+            <div className="dropdown-divider"></div>
               <Link className="dropdown-item" to={Routes.FRONTOFFICE}>Go to Dashboard</Link>
               <div className="dropdown-divider"></div>
               <a className="dropdown-item" onClick={(ev) => handleLogout(ev)}>Logout</a>
