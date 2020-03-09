@@ -1,7 +1,5 @@
 import React, { Fragment } from 'react';
 
-import './SEOSearchResult.css';
-
 const SEOSearchResult = ({children, searchResult}) => {
 
     return (

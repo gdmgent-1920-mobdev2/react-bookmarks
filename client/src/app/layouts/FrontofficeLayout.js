@@ -1,11 +1,12 @@
 import React, { Fragment, useState } from 'react';
-//import { Navigation } from '../components';
+import { Sidebar } from '../components/frontoffice';
 
 import './FrontofficeLayout.scss';
 
 const FrontofficeLayout = ({children}) => {
   return (
-    <div className="layout">
+    <div className="layout__frontoffice">
+      <Sidebar />
       <main className="main">
         {children}
       </main>

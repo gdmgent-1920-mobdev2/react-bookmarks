@@ -2,11 +2,11 @@ import React, { Fragment } from 'react';
 import { NavLink } from 'react-router-dom';
 import classnames from 'classnames';
 
-import './BaseLayout.scss';
+import { Header } from '../components/base';
 
 const BaseLayout = ({children}) => (
   <Fragment>
-    <p>hjjhjhj</p>
+    <Header />
     <main className={classnames('app-main')}>
       { children }      
     </main>

@@ -8,8 +8,6 @@ import * as Routes from './routes';
 import { BaseLayout, FrontofficeLayout } from './layouts';
 import { AppPage, HomePage, SignInPage} from './pages';
 
-import './App.css';
-
 function App() {
   return (
     <div className="app">

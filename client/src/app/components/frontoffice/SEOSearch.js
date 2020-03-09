@@ -1,9 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { ProxyContext, useFirestore } from '../services';
+import { ProxyContext, useFirestore } from '../../services';
 
 import SEOSearchResult from './SEOSearchResult';
-
-import './SEOSearch.css';
 
 const SEOSearch = ({}) => {
     const [ url, setUrl ] = useState('');
