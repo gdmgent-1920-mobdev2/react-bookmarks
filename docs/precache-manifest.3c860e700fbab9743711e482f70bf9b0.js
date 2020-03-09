@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0edf97fe456f17614f6435ecd5a8414c",
+    "revision": "a66360dc00a7294b145c9418c818a8f9",
     "url": "/react-bookmarks/index.html"
   },
   {
-    "revision": "8f27fe05508bf21fa821",
-    "url": "/react-bookmarks/static/css/main.f3aa731f.chunk.css"
+    "revision": "ca8702d0832cca300d2c",
+    "url": "/react-bookmarks/static/css/main.62a6c1ca.chunk.css"
   },
   {
     "revision": "ec6d7606caaf81276a3b",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-bookmarks/static/js/2.8eee4367.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "8f27fe05508bf21fa821",
-    "url": "/react-bookmarks/static/js/main.167909fa.chunk.js"
+    "revision": "ca8702d0832cca300d2c",
+    "url": "/react-bookmarks/static/js/main.00478200.chunk.js"
   },
   {
     "revision": "d815d9c5d079e53f53ea",
@@ -30,5 +30,9 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "ac4d72ec95fdfec67b930a02087da8da",
     "url": "/react-bookmarks/static/media/logo.ac4d72ec.png"
+  },
+  {
+    "revision": "9825aa42b0b28651de2ec06a98d7de81",
+    "url": "/react-bookmarks/static/media/logo_white.9825aa42.png"
   }
 ]);
