@@ -25,7 +25,7 @@ const Sidebar = ({children}) => {
         </h1>
         <ul className="navbar-nav flex-grow-1">
           <li className="nav-item">
-            <Link className="btn" to={Routes.FRONTOFFICE_BOOKMARKS_ADD}>+</Link>
+            <Link className="btn-add-bookmark" to={Routes.FRONTOFFICE_BOOKMARKS_ADD}>+</Link>
           </li>
         </ul>
         <ul className="navbar-nav">

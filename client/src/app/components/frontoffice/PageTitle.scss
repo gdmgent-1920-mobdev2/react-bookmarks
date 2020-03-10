@@ -7,4 +7,15 @@
 
     border-bottom: 1px solid rgba(240, 240, 240, 1);
     margin-bottom: 15px;
+
+    color: rgba(63, 69, 103, 1);
+}
+
+.page-title > h1 {
+    font-size: 1.6rem;
+}
+
+.page-title > h2 {
+    font-size: 1.2rem;
+    color: rgba(63, 69, 103, 0.6);
 }

@@ -12,42 +12,46 @@ const FirestoreProvider = ({children}) => {
     const db = app.firestore();
 
     const getBookmarks = async () => {
-        const query = db.collection('bookmarks');
-        const snapshot = await query.get();
-        const bookmarks = snapshot.docs.map((doc) => {
-            return { uid: doc.id, ...doc.data()};
-        });
-        return bookmarks;
+      const query = db.collection('bookmarks');
+      const snapshot = await query.get();
+      const bookmarks = snapshot.docs.map((doc) => {
+          return { uid: doc.id, ...doc.data()};
+      });
+      return bookmarks;
+    };
+
+    const createBookmark = async (bookmark) => {
+      return await db.collection('bookmarks').add(bookmark);
     };
 
     const loadRealtimeBookmarks = async () => {
-        db.collection("bookmarks").doc("SF")
-        .onSnapshot((doc) => {
-            console.log("Current data: ", doc.data());
-        });
+      db.collection("bookmarks").doc("SF")
+      .onSnapshot((doc) => {
+          console.log("Current data: ", doc.data());
+      });
     }
 
     useEffect(() => {
-        const unsubscribe = db.collection("bookmarks")
-        .onSnapshot((snapshot) => {
-            if (snapshot.size) {
-                const data = [];
-                snapshot.forEach(doc =>
-                    data.push({ uid: doc.id, ...doc.data() })
-                )
-                setBookmarks(data);
-            } else {
-                console.log('empty');
-            }
-        });
+      const unsubscribe = db.collection("bookmarks")
+      .onSnapshot((snapshot) => {
+        if (snapshot.size) {
+          const data = [];
+          snapshot.forEach(doc =>
+            data.push({ uid: doc.id, ...doc.data() })
+          )
+          setBookmarks(data);
+        } else {
+          console.log('empty');
+        }
+      });
 
-        return () => unsubscribe();
+      return () => unsubscribe();
     }, []);
  
     return (
-        <FirestoreContext.Provider value={{bookmarks, getBookmarks}}>
-            {children}
-        </FirestoreContext.Provider>
+      <FirestoreContext.Provider value={{bookmarks, createBookmark, getBookmarks}}>
+        {children}
+      </FirestoreContext.Provider>
     )
 };
 
