@@ -26,26 +26,32 @@ const getSEOFromUrl = async (url) => {
     return json;
 };  
 
-const createBookmark = async (bookmark) => {
-    await db.collection('bookmarks').add(bookmark);
+const createBookmark = async (userId, bookmark) => {
+  const bm = {
+    ...bookmark,
+    createdAt: Date.now(),
+    modifiedAt: null
+  }
+  return await db.collection('bookmarks').doc(userId).collection('folders').doc('uncategorized').collection('references').add(bm);
 };
 
 (async () => {
+  const userId = 'P563YJ4Pw7RYiwkP3Smgxh89vme2'; // Generated after Facebook login
     urlsToBookmark.forEach(async (url, index) => {
-        const metadata = await getSEOFromUrl(url);
-        const bookmark = {
-            url: metadata.url || null,
-            title:  metadata.title || null,
-            description:  metadata.description || null,
-            provider:  metadata.provider || null,
-            icon:  metadata.icon || null,
-            image:  metadata.image || null,
-            language:  metadata.language || null,
-            keywords:  metadata.keywords || null,
-            type:  metadata.type || null,
-            createdAt: Date.now(),
-            modifiedAt: null
-        };
-        await createBookmark(bookmark);
+      const metadata = await getSEOFromUrl(url);
+      const bookmark = {
+        url: metadata.url || null,
+        title:  metadata.title || null,
+        description:  metadata.description || null,
+        provider:  metadata.provider || null,
+        icon:  metadata.icon || null,
+        image:  metadata.image || null,
+        language:  metadata.language || null,
+        keywords:  metadata.keywords || null,
+        type:  metadata.type || null,
+        createdAt: Date.now(),
+        modifiedAt: null
+      };
+      await createBookmark(userId, bookmark);
     });
 })()

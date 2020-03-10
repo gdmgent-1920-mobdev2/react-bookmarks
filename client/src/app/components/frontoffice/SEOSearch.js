@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect, Fragment } from 'react';
-import { ProxyContext, useFirestore } from '../../services';
+import { ProxyContext, useFirestore, useAuth } from '../../services';
 
 import SEOSearchResult from './SEOSearchResult';
 
@@ -9,6 +9,7 @@ const SEOSearch = ({}) => {
 
     const { getSEO } = useContext(ProxyContext);
     const { createBookmark } = useFirestore();
+    const { currentUser } = useAuth();
 
     const handleSubmit = async (ev) => {
         ev.preventDefault();
@@ -28,7 +29,7 @@ const SEOSearch = ({}) => {
         provider: searchResult.provider ? searchResult.provider : null,
         language: searchResult.language ? searchResult.language : null
       }
-      createBookmark(bookmark);
+      createBookmark(currentUser.uid, bookmark);
       setSearchResult(null);
   };
 
