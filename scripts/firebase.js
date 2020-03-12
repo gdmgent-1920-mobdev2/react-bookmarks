@@ -9,8 +9,28 @@ const app = admin.initializeApp({
 
 const db = app.firestore();
 
+/*
+* Generate Timestamps
+*/
+const generateTimestampsDuringCreate = () => {
+  return {
+    _createdAt: Date.now(),
+    _updatedAt: null,
+    _deletedAt: null
+  }
+}
+
+/*
+* Generate Integer between min and max
+*/
+const generateValueBetweenMinAndMax = (min, max) => {
+  return min + Math.round(Math.random()*(max - min));
+}
+
 export {
     admin,
     app,
     db,
+    generateTimestampsDuringCreate,
+    generateValueBetweenMinAndMax
 }

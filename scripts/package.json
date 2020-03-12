@@ -16,6 +16,7 @@
     "babel-preset-airbnb": "^4.4.0"
   },
   "scripts": {
-    "seeder:bookmarks": "babel-node seeder_bookmarks.js --debug --presets airbnb"
+    "seeder:bookmarks:create": "babel-node seeder_bookmarks_create.js --debug --presets airbnb",
+    "seeder:bookmarks:delete": "babel-node seeder_collection_delete.js bookmarks 50 --debug --presets airbnb"
   }
 }
