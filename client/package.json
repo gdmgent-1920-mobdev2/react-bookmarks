@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "cpy-cli": "^3.1.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "rimraf": "^3.0.2"
   }
 }
